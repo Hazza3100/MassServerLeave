@@ -5,7 +5,7 @@ from   colorama import *
 class Cleaner:
     def __init__(self, token):
         self.guildSum  = 0
-        self.dontLeave = ['930833528747347989', '997553221771997322']
+        self.dontLeave = ['1025518144179163186', '997553221771997322']
         self.token     = token
         self.session   = requests.Session()
 
