@@ -1,12 +1,13 @@
+import os
 import requests
 from   colorama import *
 
 class Cleaner:
     def __init__(self, token):
-        self.guildSum = 0
+        self.guildSum  = 0
         self.dontLeave = ['930833528747347989', '997553221771997322']
-        self.token    = token
-        self.session  = requests.Session()
+        self.token     = token
+        self.session   = requests.Session()
 
     def leave(self):
         try:
@@ -17,14 +18,15 @@ class Cleaner:
                     if guild in self.dontLeave:
                         pass
                     else:
-                        response = session.delete(f'https://discord.com/api/v9/users/@me/guilds/{str(guild)}', json={'lurking': False,}, headers=headers)
+                        response = session.delete(f"https://discord.com/api/v9/users/@me/guilds/{str(guild['id'])}", json={'lurking': False,}, headers=headers)
                         if response.status_code == 204:
-                            print(f"[{Fore.GREEN}+{Fore.RESET}] Left ['{Fore.YELLOW}{guild}{Fore.RESET}']")
+                            print(f"[{Fore.GREEN}+{Fore.RESET}] Left ['{Fore.YELLOW}{guild['id']}{Fore.RESET}']")
                             self.guildSum += 1
                         else:
-                            print(f"[{Fore.RED}-{Fore.RESET}] Error ['{Fore.RED}{guild}{Fore.RESET}']")
+                            print(f"[{Fore.RED}-{Fore.RESET}] Error ['{Fore.RED}{guild['id']}{Fore.RESET}']")
                 print(f"[{Fore.LIGHTMAGENTA_EX}!{Fore.RESET}] Finished all tasks ['{Fore.YELLOW}{self.guildSum}{Fore.RESET}']")
         except:
             pass
 
+os.system('cls')
 Cleaner(input("Account token: ")).leave()
