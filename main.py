@@ -18,7 +18,7 @@ class Cleaner:
                         print(f"[{Fore.GREEN}+{Fore.RESET}] Left ['{Fore.YELLOW}{guild}{Fore.RESET}']")
                         self.guildSum += 1
                     else:
-                        print(f"[{Fore.RED}-{Fore.RESET}] Error ['{guild}']")
+                        print(f"[{Fore.RED}-{Fore.RESET}] Error ['{Fore.RED}{guild}{Fore.RESET}']")
                 print(f"[{Fore.LIGHTMAGENTA_EX}!{Fore.RESET}] Finished all tasks ['{Fore.YELLOW}{self.guildSum}{Fore.RESET}']")
         except:
             pass
